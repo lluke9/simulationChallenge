@@ -1,42 +1,47 @@
-console.log("✅ smart-scroll.js loaded (Bootstrap-aware)");
+console.log("✅ smart-scroll.js loaded (force-open version)");
 
 window.addEventListener("load", () => {
   const hash = window.location.hash;
   if (!hash) return;
 
-  // Delay to ensure Bootstrap bindings are initialized
+  // Wait a little to let Quarto's DOM settle
   setTimeout(() => {
     const target = document.querySelector(hash);
     if (!target) {
-      console.warn("❌ No target found for", hash);
+      console.warn("❌ Target not found for", hash);
       return;
     }
 
     const scrollToEl = (el) =>
       el.scrollIntoView({ behavior: "smooth", block: "start" });
 
-    // Look up the closest callout wrapper
+    // Look for enclosing callout
     const callout = target.closest(".callout");
     if (!callout) {
       scrollToEl(target);
       return;
     }
 
-    // Find the header toggle and collapse body
-    const headerBtn = callout.querySelector(".callout-header[data-bs-toggle='collapse']");
-    const collapseEl = callout.querySelector(".callout-collapse");
+    // Try normal Bootstrap toggle first
+    const header = callout.querySelector(".callout-header[data-bs-toggle='collapse']");
+    const collapse = callout.querySelector(".callout-collapse");
 
-    if (collapseEl && !collapseEl.classList.contains("show")) {
-      console.log("📂 Expanding callout:", callout);
-      if (headerBtn) {
-        headerBtn.click(); // simulate user click to trigger Bootstrap’s collapse
-        setTimeout(() => scrollToEl(target), 600);
-      } else {
-        collapseEl.classList.add("show");
+    if (collapse && !collapse.classList.contains("show")) {
+      console.log("📂 Forcing open callout for:", hash);
+
+      // Try clicking first (for Bootstrap)
+      if (header) header.click();
+
+      // Fallback: manually show if click didn't work
+      setTimeout(() => {
+        if (!collapse.classList.contains("show")) {
+          collapse.classList.add("show");
+          collapse.style.height = "auto";
+        }
         scrollToEl(target);
-      }
+      }, 600);
     } else {
       scrollToEl(target);
     }
-  }, 400);
+  }, 600);
 });
