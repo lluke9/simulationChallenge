@@ -3,6 +3,8 @@ title: "Simulation Challenge"
 subtitle: "Luke Bang"
 format:
   html: default
+  include-after-body: smart-scroll.js
+  css: styles.css
 execute:
   echo: true
   eval: true
