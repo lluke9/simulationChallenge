@@ -491,7 +491,7 @@ There is however, one caveat: the mean is actually maximized by betting 100% of 
 
 
 
-
+::: {.callout collapse="true" title="Assignment instructions"}
 
 
 ## Professional Presentation (From Grading TLDR)
@@ -516,3 +516,5 @@ There is however, one caveat: the mean is actually maximized by betting 100% of 
 -   Use object-oriented plotting with `matplotlib`
 -   Keep figures readable and labeled; prefer professional styling
 -   Commit early and often; render locally before pushing
+
+:::
