@@ -32,7 +32,7 @@ execute:
 Use Cursor AI for speed, but ensure you understand and can explain the results in your own words. Verify cursor's calculations as investment simulation is tricky.
 :::
 
-## The Investment Game
+## The Investment Game {#investment-game}
 
 You have the opportunity to buy-in to this game next week with \$30,000. Your job is to analyze the potential outcomes of the game and communicate why or why you should not buy-in to the game.
 
@@ -86,7 +86,7 @@ investmentDAG.show()
 
 # Abstract / Reflections
 
-The goal of this writeup is to understand the parameters particular [game](#the-investment-game) and its optimal strategy, called the **Kelly Criterion**. This game is relevant to investment strategy. 
+The goal of this writeup is to understand the parameters particular [game](#nvestment-game) and its optimal strategy, called the **Kelly Criterion**. This game is relevant to investment strategy. 
 
 The **Kelly Criterion** suggests that the optimal betting strategy (given that we are allowed to bet a portion $f^*$ of our wealth at each round, not necessarily fixed for each round, but that doesn’t seem to matter…) is **25%** for the game as described above. This mathematically follows from maximizing
 
