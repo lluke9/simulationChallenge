@@ -132,7 +132,7 @@ window.Quarto = {
 <section id="simulation-challenge---the-kelly-criterion" class="level1">
 <h1>🎲 Simulation Challenge - The Kelly Criterion</h1>
 <div class="callout callout-style-simple callout-none no-icon callout-titled" title="Assignment instructions">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -141,20 +141,43 @@ window.Quarto = {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>::: callout-important ## 📋 What You Need To Do</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>📋 What You Need To Do
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul class="task-list">
 <li><label><input type="checkbox" checked="">Fork and create repo <code>simulationChallenge</code> in your GitHub</label></li>
 <li><label><input type="checkbox" checked="">Clone locally and open in Cursor</label></li>
 <li><label><input type="checkbox" checked="">Write your analysis in this <code>index.qmd</code></label></li>
 <li><label><input type="checkbox" checked="">Render to HTML (<code>quarto render</code> or Render button)</label></li>
 <li><label><input type="checkbox" checked="">Push HTML to your repo and enable GitHub Pages</label></li>
-<li><label><input type="checkbox" checked="">Share your site: <code>https://[your-username].github.io/simulationChallenge/</code> :::</label></li>
+<li><label><input type="checkbox" checked="">Share your site: <code>https://[your-username].github.io/simulationChallenge/</code></label></li>
 </ul>
-<p>::: callout-warning ## ⚠️ AI Partnership Required</p>
-<p>Use Cursor AI for speed, but ensure you understand and can explain the results in your own words. Verify cursor’s calculations as investment simulation is tricky. :::</p>
-<p>## The Investment Game</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>⚠️ AI Partnership Required
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Use Cursor AI for speed, but ensure you understand and can explain the results in your own words. Verify cursor’s calculations as investment simulation is tricky.</p>
+</div>
+</div>
+<section id="the-investment-game" class="level2">
+<h2 class="anchored" data-anchor-id="the-investment-game">The Investment Game</h2>
 <p>You have the opportunity to buy-in to this game next week with $30,000. Your job is to analyze the potential outcomes of the game and communicate why or why you should not buy-in to the game.</p>
 <p>Each year after buy-in you flip a fair coin:</p>
 <ul>
@@ -162,10 +185,25 @@ window.Quarto = {
 <li>Tails: decrease your account balance by 40%</li>
 </ul>
 <p>You play annually until age 75. Your mission is to analyze outcomes and communicate insights clearly.</p>
-<p>### Generative DAG Model (from the source challenge)</p>
+<section id="generative-dag-model-from-the-source-challenge" class="level3">
+<h3 class="anchored" data-anchor-id="generative-dag-model-from-the-source-challenge">Generative DAG Model (from the source challenge)</h3>
 <p>The following DAFT diagram shows the generative structure of the investment game over time.</p>
-<p>::: {#cell-fig-investment-dag .cell execution_count=2}</p>
-<p>::: {.cell-output .cell-output-display} <img src="index_files/figure-html/fig-investment-dag-output-1.png" id="fig-investment-dag" width="649" height="220" alt="Generative DAG model for the investment game showing how wealth evolves over time through coin flips"> ::: :::</p>
+<div id="cell-fig-investment-dag" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div id="fig-investment-dag" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-investment-dag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="index_files/figure-html/fig-investment-dag-output-1.png" width="649" height="220" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-investment-dag-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Generative DAG model for the investment game showing how wealth evolves over time through coin flips
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
 </div>
 </div>
 </div>

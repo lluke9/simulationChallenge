@@ -10,74 +10,79 @@ execute:
 
 
 # 🎲 Simulation Challenge - The Kelly Criterion
+
 ::: {.callout collapse="true" title="Assignment instructions"}
 
-  ::: callout-important
-  ## 📋 What You Need To Do
 
-  -   [x] Fork and create repo `simulationChallenge` in your GitHub
-  -   [x] Clone locally and open in Cursor
-  -   [x] Write your analysis in this `index.qmd`
-  -   [x] Render to HTML (`quarto render` or Render button)
-  -   [x] Push HTML to your repo and enable GitHub Pages
-  -   [x] Share your site: `https://[your-username].github.io/simulationChallenge/`
-  :::
+::: callout-important
+### 📋 What You Need To Do
 
-  ::: callout-warning
-  ## ⚠️ AI Partnership Required
+-   [x] Fork and create repo `simulationChallenge` in your GitHub
+-   [x] Clone locally and open in Cursor
+-   [x] Write your analysis in this `index.qmd`
+-   [x] Render to HTML (`quarto render` or Render button)
+-   [x] Push HTML to your repo and enable GitHub Pages
+-   [x] Share your site: `https://[your-username].github.io/simulationChallenge/`
+:::
 
-  Use Cursor AI for speed, but ensure you understand and can explain the results in your own words. Verify cursor's calculations as investment simulation is tricky.
-  :::
 
-  ## The Investment Game
+::: callout-warning
+## ⚠️ AI Partnership Required
 
-  You have the opportunity to buy-in to this game next week with \$30,000. Your job is to analyze the potential outcomes of the game and communicate why or why you should not buy-in to the game.
+Use Cursor AI for speed, but ensure you understand and can explain the results in your own words. Verify cursor's calculations as investment simulation is tricky.
+:::
 
-  Each year after buy-in you flip a fair coin:
+## The Investment Game
 
-  -   Heads: increase your account balance by 50%
-  -   Tails: decrease your account balance by 40%
+You have the opportunity to buy-in to this game next week with \$30,000. Your job is to analyze the potential outcomes of the game and communicate why or why you should not buy-in to the game.
 
-  You play annually until age 75. Your mission is to analyze outcomes and communicate insights clearly.
+Each year after buy-in you flip a fair coin:
 
-  ### Generative DAG Model (from the source challenge)
+-   Heads: increase your account balance by 50%
+-   Tails: decrease your account balance by 40%
 
-  The following DAFT diagram shows the generative structure of the investment game over time.
+You play annually until age 75. Your mission is to analyze outcomes and communicate insights clearly.
 
-  ```{python}
-  #| echo: false
-  #| include: false
-  import daft
+### Generative DAG Model (from the source challenge)
 
-  # Create the DAG directly without custom class
-  investmentDAG = daft.PGM(dpi=100, alternate_style="outer")
+The following DAFT diagram shows the generative structure of the investment game over time.
 
-  # Initial wealth (deterministic)
-  investmentDAG.add_node("W0", "Initial Wealth\n$W_0 = 30,000$", x=4, y=2.5, aspect=5.4, 
-                        alternate=True, plot_params={'facecolor': 'aliceblue'})
+```{python}
+#| echo: false
+#| include: false
+import daft
 
-  # Time t nodes  
-  investmentDAG.add_node("Ct", "Coin Flip t\n$C_t \\sim \\text{Bernoulli}(0.5)$", x=0, y=1, aspect=4, scale = 1.6,
-                        plot_params={'facecolor': 'aliceblue'})
-  investmentDAG.add_node("Wt", "\nWealth t\n$W_t = 1.5 \\times W_{t-1}$ if $C_t = 1$\n$W_t = 0.6 \\times W_{t-1}$ if $C_t = 0$\n", x=4, y=1, scale = 1.6, aspect=4,
-                        alternate=True, plot_params={'facecolor': 'aliceblue'})
+# Create the DAG directly without custom class
+investmentDAG = daft.PGM(dpi=100, alternate_style="outer")
 
-  # Add edges showing the relationships
-  investmentDAG.add_edge("W0", "Wt")
-  investmentDAG.add_edge("Ct", "Wt")
+# Initial wealth (deterministic)
+investmentDAG.add_node("W0", "Initial Wealth\n$W_0 = 30,000$", x=4, y=2.5, aspect=5.4, 
+                  alternate=True, plot_params={'facecolor': 'aliceblue'})
 
-  # Add plate around time-dependent nodes
-  investmentDAG.add_plate([-2, 0.5, 7.8, 1.0], label="t = 1, ..., N", shift=-0.1)
-  ```
+# Time t nodes  
+investmentDAG.add_node("Ct", "Coin Flip t\n$C_t \\sim \\text{Bernoulli}(0.5)$", x=0, y=1, aspect=4, scale = 1.6,
+                  plot_params={'facecolor': 'aliceblue'})
+investmentDAG.add_node("Wt", "\nWealth t\n$W_t = 1.5 \\times W_{t-1}$ if $C_t = 1$\n$W_t = 0.6 \\times W_{t-1}$ if $C_t = 0$\n", x=4, y=1, scale = 1.6, aspect=4,
+                  alternate=True, plot_params={'facecolor': 'aliceblue'})
 
-  ```{python}
-  #| label: fig-investment-dag
-  #| fig-cap: Generative DAG model for the investment game showing how wealth evolves over time through coin flips
-  #| echo: false
-  investmentDAG.show()
-  ```
+# Add edges showing the relationships
+investmentDAG.add_edge("W0", "Wt")
+investmentDAG.add_edge("Ct", "Wt")
+
+# Add plate around time-dependent nodes
+investmentDAG.add_plate([-2, 0.5, 7.8, 1.0], label="t = 1, ..., N", shift=-0.1)
+```
+
+```{python}
+#| label: fig-investment-dag
+#| fig-cap: Generative DAG model for the investment game showing how wealth evolves over time through coin flips
+#| echo: false
+investmentDAG.show()
+```
 
 :::
+
+
 
 # Abstract / Reflections
 
