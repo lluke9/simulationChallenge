@@ -103,7 +103,7 @@ From my naive standpoint, it was surprising that maximizing the expectation of w
 
 For instance, if you’re running this game over multiple parallel universes and you’re trying to maximize the sum wealth over all universes, it’s clear that $\mathbb{E}[W_n]$ is the right thing to maximize. But we preside over one universe and one life — not multiple! Is maximizing $\mathbb{E}[\log(W_n)]$ attuned to some set of assumptions here (perhaps related to generating wealth over a single lifespan) the same way that $\mathbb{E}[W_n]$ attunes to maximizing wealth "over the multiverse of lifespans"? 
 
-
+::: {.callout collapse="true" title="Assignment instructions"}
 ## Analysis Tasks (Fill These In)
 
 ::: callout-note
@@ -112,10 +112,12 @@ For instance, if you’re running this game over multiple parallel universes and
 -   Sections 1–4: required and can earn up to 90% of the grade.
 -   Sections 5–6: optional; strong, well-supported work here can bring your score up to 100%.
 :::
+:::
 
 ### 1) Expected Value After 1 Flip
-
+::: {.callout collapse="true" title="Assignment instructions"}
 TODO: Explain whether the expected value of your account balance after one flip is \>, =, or \< 30,000. What is the gain in expected value as a percentage of your buy-in? Does this simple analysis suggest you should buy-in to the game?
+:::
 
 \begin{aligned}
 W_0 &= 30000 \\
@@ -139,15 +141,10 @@ print('Expected Value after 1 flip: ', eW1)
 ```
 
 ### 2) Single Simulation Over Time (Narrative + Plot)
-
+::: {.callout collapse="true" title="Assignment instructions"}
 Briefly narrate and visualize what happens to your account balance over the course of one run. Are you happy with the outcome? Why? or Why not? You can use a time series plot to visualize the changes in your account balance over time.
-
----
-
-**Answer:**  
+:::
 Not so happy with the outcome. Surprisingly, even though the expected value at each step is expected to increase, the outcome after 35 years is actually lower than the initial investment.
-
----
 
 
 ```{python}
@@ -191,9 +188,9 @@ plt.show()
 
 
 ### 3) 100 Simulations: Distribution of Final Balances
-
+::: {.callout collapse="true" title="Assignment instructions"}
 TODO: Visually and narratively describe the distribution of your account balance after running the 100 simulations. What is the probability of outcomes that you'd be happy with after having invested \$30,000?
- test
+:::
 ```{python}
 #| label: q3-dist-100-py
 #| echo: false
@@ -287,9 +284,9 @@ I would probably expect nearly a 100% change to have gained more than $30000. Ea
 
 
 ### 4) Probability Balance \> \$30,000 at Age 75 (Original Game)
-
+::: {.callout collapse="true" title="Assignment instructions"}
 TODO: Report the probability estimate and interpret its practical meaning.
-
+:::
 ```{python}
 #| label: q4-prob-original-py
 #| echo: true
@@ -474,9 +471,9 @@ else:
 ```
 
 ### 6) Briefly Explain Your Findings From The Previous Step in Light of A Concept Known as the "Kelly Criterion"
-
+::: {.callout collapse="true" title="Assignment instructions"}
 What is the Kelly Criterion and how does it relate to the modified strategy?
-
+:::
 
 The generalized formula for the Kelly Criterion is this (per Wikipedia article on the Kelly Criterion https://en.wikipedia.org/wiki/Kelly_criterion#Investment_formula: )
 $f^* = \frac{p}{l} - \frac{q}{g}$ 

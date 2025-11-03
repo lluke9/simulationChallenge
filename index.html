@@ -219,7 +219,18 @@ Figure&nbsp;1: Generative DAG model for the investment game showing how wealth e
 <p>And this bears out in the subsequent analysis, in terms of the probability that you end up with more money than you started. But also, as expected, while you mitigate risk, you lose out on mean wealth.</p>
 <p>From my naive standpoint, it was surprising that maximizing the expectation of wealth <span class="math inline">\(\mathbb{E}[W_n]\)</span> vs.&nbsp;the logarithm of wealth <span class="math inline">\(\mathbb{E}[\log(W_n)]\)</span> yielded different strategies… I thought that since <span class="math inline">\(log(W_n)\)</span> was monotonic, it would be little more than a regularization, in some sense. <strong>But what’s even more interesting is that we would want to maximize <span class="math inline">\(\log(W_n)\)</span> as opposed just <span class="math inline">\(W_n\)</span> in the first place.</strong> At first glance it’s sensible; the game is multiplicative (1.5× on win, 0.6× on loss) and logarithm “additionizes” multiplication. But my problem with this is that there’s no mathematical reason for why one should prefer this.</p>
 <p>For instance, if you’re running this game over multiple parallel universes and you’re trying to maximize the sum wealth over all universes, it’s clear that <span class="math inline">\(\mathbb{E}[W_n]\)</span> is the right thing to maximize. But we preside over one universe and one life — not multiple! Is maximizing <span class="math inline">\(\mathbb{E}[\log(W_n)]\)</span> attuned to some set of assumptions here (perhaps related to generating wealth over a single lifespan) the same way that <span class="math inline">\(\mathbb{E}[W_n]\)</span> attunes to maximizing wealth “over the multiverse of lifespans”?</p>
-<section id="analysis-tasks-fill-these-in" class="level2">
+<div class="callout callout-style-simple callout-none no-icon callout-titled" title="Assignment instructions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Assignment instructions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<section id="analysis-tasks-fill-these-in" class="level2 callout-body-container callout-body">
 <h2 class="anchored" data-anchor-id="analysis-tasks-fill-these-in">Analysis Tasks (Fill These In)</h2>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -237,9 +248,27 @@ Figure&nbsp;1: Generative DAG model for the investment game showing how wealth e
 </ul>
 </div>
 </div>
+</section>
+</div>
+</div>
 <section id="expected-value-after-1-flip" class="level3">
 <h3 class="anchored" data-anchor-id="expected-value-after-1-flip">1) Expected Value After 1 Flip</h3>
+<div class="callout callout-style-simple callout-none no-icon callout-titled" title="Assignment instructions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Assignment instructions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>TODO: Explain whether the expected value of your account balance after one flip is &gt;, =, or &lt; 30,000. What is the gain in expected value as a percentage of your buy-in? Does this simple analysis suggest you should buy-in to the game?</p>
+</div>
+</div>
+</div>
 <span class="math display">\[\begin{aligned}
 W_0 &amp;= 30000 \\
 E[W_1] &amp;= 1.5 \times W_0 \times P(H) + 0.6 \times W_0 \times P(T) \\
@@ -254,11 +283,23 @@ E[W_1] &amp;= 1.5 \times W_0 \times P(H) + 0.6 \times W_0 \times P(T) \\
 </section>
 <section id="single-simulation-over-time-narrative-plot" class="level3">
 <h3 class="anchored" data-anchor-id="single-simulation-over-time-narrative-plot">2) Single Simulation Over Time (Narrative + Plot)</h3>
+<div class="callout callout-style-simple callout-none no-icon callout-titled" title="Assignment instructions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Assignment instructions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Briefly narrate and visualize what happens to your account balance over the course of one run. Are you happy with the outcome? Why? or Why not? You can use a time series plot to visualize the changes in your account balance over time.</p>
-<hr>
-<p><strong>Answer:</strong><br>
-Not so happy with the outcome. Surprisingly, even though the expected value at each step is expected to increase, the outcome after 35 years is actually lower than the initial investment.</p>
-<hr>
+</div>
+</div>
+</div>
+<p>Not so happy with the outcome. Surprisingly, even though the expected value at each step is expected to increase, the outcome after 35 years is actually lower than the initial investment.</p>
 <div id="cell-q2-single-sim-py" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
 <div id="q2-single-sim-py" class="quarto-figure quarto-figure-center anchored">
@@ -272,7 +313,22 @@ Not so happy with the outcome. Surprisingly, even though the expected value at e
 </section>
 <section id="simulations-distribution-of-final-balances" class="level3">
 <h3 class="anchored" data-anchor-id="simulations-distribution-of-final-balances">3) 100 Simulations: Distribution of Final Balances</h3>
-<p>TODO: Visually and narratively describe the distribution of your account balance after running the 100 simulations. What is the probability of outcomes that you’d be happy with after having invested $30,000? test</p>
+<div class="callout callout-style-simple callout-none no-icon callout-titled" title="Assignment instructions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Assignment instructions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>TODO: Visually and narratively describe the distribution of your account balance after running the 100 simulations. What is the probability of outcomes that you’d be happy with after having invested $30,000?</p>
+</div>
+</div>
+</div>
 <div id="cell-q3-dist-100-py" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
 <div id="q3-dist-100-py" class="quarto-figure quarto-figure-center anchored">
@@ -291,7 +347,22 @@ Median final balance : $1,772.59</code></pre>
 </section>
 <section id="probability-balance-30000-at-age-75-original-game" class="level3">
 <h3 class="anchored" data-anchor-id="probability-balance-30000-at-age-75-original-game">4) Probability Balance &gt; $30,000 at Age 75 (Original Game)</h3>
+<div class="callout callout-style-simple callout-none no-icon callout-titled" title="Assignment instructions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Assignment instructions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>TODO: Report the probability estimate and interpret its practical meaning.</p>
+</div>
+</div>
+</div>
 <div id="q4-prob-original-py" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Using the 100 simulations above, estimate P(final &gt; 30000)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - Print numeric result with 3 decimals</span></span>
@@ -346,14 +417,28 @@ Modified probability (betting 25%): 71.00%</code></pre>
 </section>
 <section id="briefly-explain-your-findings-from-the-previous-step-in-light-of-a-concept-known-as-the-kelly-criterion" class="level3">
 <h3 class="anchored" data-anchor-id="briefly-explain-your-findings-from-the-previous-step-in-light-of-a-concept-known-as-the-kelly-criterion">6) Briefly Explain Your Findings From The Previous Step in Light of A Concept Known as the “Kelly Criterion”</h3>
+<div class="callout callout-style-simple callout-none no-icon callout-titled" title="Assignment instructions">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">None</span>Assignment instructions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>What is the Kelly Criterion and how does it relate to the modified strategy?</p>
+</div>
+</div>
+</div>
 <p>The generalized formula for the Kelly Criterion is this (per Wikipedia article on the Kelly Criterion https://en.wikipedia.org/wiki/Kelly_criterion#Investment_formula: ) <span class="math inline">\(f^* = \frac{p}{l} - \frac{q}{g}\)</span></p>
 <p>where <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> are the probabilities of winning and losing, respectively, and <span class="math inline">\(l\)</span> and <span class="math inline">\(g\)</span> are the fractions gained/lost by losing or winning, respectively.</p>
 <p>Plugging in the conditions of the game, we get: (keep in mind that )</p>
 <p><span class="math inline">\(f^* = \frac{0.5}{0.6} - \frac{0.5}{0.5} = 0.25\)</span></p>
 <p>This means that the Kelly Criterion suggests betting 25% of your balance each year. This bears out in the fact that betting 25% outperformed betting both 100% and 50% of your balance each year.</p>
 <p>There is however, one caveat: the mean is actually maximized by betting 100% of your balance each year.</p>
-</section>
 </section>
 <section id="professional-presentation-from-grading-tldr" class="level2">
 <h2 class="anchored" data-anchor-id="professional-presentation-from-grading-tldr">Professional Presentation (From Grading TLDR)</h2>
