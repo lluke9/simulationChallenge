@@ -1,33 +1,45 @@
 console.log("✅ smart-scroll.js loaded");
 
-// Auto-open callout if link target is inside one, then scroll to it
-document.addEventListener("DOMContentLoaded", () => {
+// Wait until both DOM and Bootstrap collapse behavior are ready
+window.addEventListener("load", () => {
   const hash = window.location.hash;
   if (!hash) return;
 
-  const target = document.querySelector(hash);
-  if (!target) return;
+  // Give Bootstrap a short moment to finish binding events
+  setTimeout(() => {
+    const target = document.querySelector(hash);
+    if (!target) {
+      console.warn("❌ No target found for", hash);
+      return;
+    }
 
-  const scrollToEl = (el) =>
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
+    // Helper to scroll smoothly
+    const scrollToEl = (el) =>
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
 
-  // Find nearest callout container
-  const callout = target.closest(".callout");
-  if (callout) {
+    // Detect enclosing callout
+    const callout = target.closest(".callout");
+    if (!callout) {
+      scrollToEl(target);
+      return;
+    }
+
     const collapseEl = callout.querySelector(".callout-collapse");
     const headerBtn = callout.querySelector("[data-bs-toggle='collapse']");
 
-    // Only expand if it's currently collapsed
+    // Only open if collapsed
     if (collapseEl && collapseEl.classList.contains("collapse")) {
-      // Simulate click to open via Bootstrap
-      if (headerBtn) headerBtn.click();
-
-      // Wait a bit for the animation to finish, then scroll
-      setTimeout(() => scrollToEl(target), 400);
-      return;
+      console.log("📂 Expanding callout for", hash);
+      if (headerBtn) {
+        headerBtn.click(); // trigger Bootstrap expand
+        // Wait for transition (Bootstrap anim ~300 ms)
+        setTimeout(() => scrollToEl(target), 500);
+      } else {
+        // Fallback: just scroll
+        scrollToEl(target);
+      }
+    } else {
+      scrollToEl(target);
     }
-  }
-
-  // Fallback: just scroll normally
-  scrollToEl(target);
+  }, 300); // delay to ensure Bootstrap is initialized
 });
