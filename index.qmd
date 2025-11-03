@@ -13,8 +13,7 @@ execute:
   echo: true
   eval: true
 ---
-<!-- Version 3 --> 
-<!-- blluh bluh --> 
+<!-- Version 3.1 --> 
 # 🎲 Simulation Challenge - The Kelly Criterion
 
 ::: {.callout collapse="true" title="Assignment instructions"}

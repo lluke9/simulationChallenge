@@ -1,11 +1,10 @@
-console.log("✅ smart-scroll.js loaded");
+console.log("✅ smart-scroll.js loaded (Bootstrap-aware)");
 
-// Wait until both DOM and Bootstrap collapse behavior are ready
 window.addEventListener("load", () => {
   const hash = window.location.hash;
   if (!hash) return;
 
-  // Give Bootstrap a short moment to finish binding events
+  // Delay to ensure Bootstrap bindings are initialized
   setTimeout(() => {
     const target = document.querySelector(hash);
     if (!target) {
@@ -13,33 +12,31 @@ window.addEventListener("load", () => {
       return;
     }
 
-    // Helper to scroll smoothly
     const scrollToEl = (el) =>
       el.scrollIntoView({ behavior: "smooth", block: "start" });
 
-    // Detect enclosing callout
+    // Look up the closest callout wrapper
     const callout = target.closest(".callout");
     if (!callout) {
       scrollToEl(target);
       return;
     }
 
+    // Find the header toggle and collapse body
+    const headerBtn = callout.querySelector(".callout-header[data-bs-toggle='collapse']");
     const collapseEl = callout.querySelector(".callout-collapse");
-    const headerBtn = callout.querySelector("[data-bs-toggle='collapse']");
 
-    // Only open if collapsed
-    if (collapseEl && collapseEl.classList.contains("collapse")) {
-      console.log("📂 Expanding callout for", hash);
+    if (collapseEl && !collapseEl.classList.contains("show")) {
+      console.log("📂 Expanding callout:", callout);
       if (headerBtn) {
-        headerBtn.click(); // trigger Bootstrap expand
-        // Wait for transition (Bootstrap anim ~300 ms)
-        setTimeout(() => scrollToEl(target), 500);
+        headerBtn.click(); // simulate user click to trigger Bootstrap’s collapse
+        setTimeout(() => scrollToEl(target), 600);
       } else {
-        // Fallback: just scroll
+        collapseEl.classList.add("show");
         scrollToEl(target);
       }
     } else {
       scrollToEl(target);
     }
-  }, 300); // delay to ensure Bootstrap is initialized
+  }, 400);
 });
