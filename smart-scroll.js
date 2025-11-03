@@ -1,3 +1,5 @@
+console.log("✅ smart-scroll.js loaded");
+
 // Auto-open a callout if it's the link target, then scroll to it
 document.addEventListener("DOMContentLoaded", () => {
     const hash = window.location.hash;
