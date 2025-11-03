@@ -86,7 +86,7 @@ investmentDAG.show()
 
 # Abstract / Reflections
 
-The goal of this writeup is to understand the parameters particular [game](#nvestment-game) and its optimal strategy, called the **Kelly Criterion**. This game is relevant to investment strategy. 
+The goal of this writeup is to understand the parameters particular [game](#investment-game) and its optimal strategy, called the **Kelly Criterion**. This game is relevant to investment strategy. 
 
 The **Kelly Criterion** suggests that the optimal betting strategy (given that we are allowed to bet a portion $f^*$ of our wealth at each round, not necessarily fixed for each round, but that doesn’t seem to matter…) is **25%** for the game as described above. This mathematically follows from maximizing
 
