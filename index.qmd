@@ -1,15 +1,18 @@
 ---
 title: "Simulation Challenge"
 subtitle: "Luke Bang"
+
 format:
   html:
-    include-after-body: smart-scroll.js
-    css: styles.css
+    include-in-header:
+      text: <script type="text/javascript" src="smart-scroll.js"></script>
+    css:
+      - styles.css
+
 execute:
   echo: true
   eval: true
 ---
-
 
 # 🎲 Simulation Challenge - The Kelly Criterion
 

@@ -70,6 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="index_files/libs/bootstrap/bootstrap-9e3ffae467580fdb927a41352e75a2e0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script type="text/javascript" src="smart-scroll.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -489,49 +490,6 @@ Modified probability (betting 25%): 71.00%</code></pre>
 
 </main>
 <!-- /main column -->
-// Auto-open a callout if it's the link target, then scroll to it
-
-document.addEventListener("DOMContentLoaded", () =&gt; {
-
-    const hash = window.location.hash;
-
-    if (!hash) return;
-
-  
-
-    const target = document.querySelector(hash);
-
-    if (!target) return;
-
-  
-
-    const scrollToEl = (el) =&gt;
-
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
-
-  
-
-    // Case 1: target is inside a collapsed callout
-
-    const detailsParent = target.closest("details.callout");
-
-    if (detailsParent &amp;&amp; !detailsParent.open) {
-
-      detailsParent.open = true;           // expand it
-
-      // give the browser a beat to lay it out before scrolling
-
-      setTimeout(() =&gt; scrollToEl(target), 150);
-
-    } else {
-
-      // Case 2: target is visible (either open or outside)
-
-      scrollToEl(target);
-
-    }
-
-  });
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
